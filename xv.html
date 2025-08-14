@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XV Años de Natalia</title>
+
+  <!-- Fuentes elegantes -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: url('https://www.transparenttextures.com/patterns/flowers.png'), linear-gradient(to bottom, #fce4ec, #fff);
+      background-repeat: repeat;
+      background-size: cover;
+      color: #444;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      background-image: url('https://via.placeholder.com/1000x400?text=XV+Años+de+Natalia');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 20px 60px;
+      color: white;
+      font-size: 3rem;
+      font-family: 'Great Vibes', cursive;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+      position: relative;
+      text-align: center;
+    }
+
+    header::before {
+      content: "👑";
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 3rem;
+    }
+
+    .container {
+      max-width: 700px;
+      width: 90%;
+      background: white;
+      margin-top: -40px;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      color: #d81b60;
+      margin-bottom: 10px;
+    }
+
+    .leyenda {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #6a1b9a;
+      line-height: 1.6;
+      margin: 20px 0;
+    }
+
+    .contador {
+      font-size: 1.5rem;
+      margin: 20px 0;
+      font-weight: bold;
+      color: #d81b60;
+    }
+
+    .ubicaciones {
+      margin-top: 30px;
+    }
+
+    .ubicaciones h2 {
+      color: #ad1457;
+      margin-bottom: 10px;
+    }
+
+    .ubicaciones p {
+      margin: 5px 0;
+      font-size: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px 5px;
+      padding: 12px 20px;
+      background: #d81b60;
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #ad1457;
+    }
+
+    footer {
+      margin: 40px 0 20px;
+      font-size: 0.9rem;
+      color: #777;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        font-size: 2.2rem;
+        padding: 80px 10px 40px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    XV Años de Natalia
+  </header>
+
+  <div class="container">
+    <h1>¡Estás invitado!</h1>
+    <p>Te esperamos el <strong>13 de septiembre de 2025</strong> para celebrar juntos este momento tan especial.</p>
+    
+    <p class="leyenda">
+      Con la bendición de Dios y el amor de mis padres <strong>Carlos Ricardo Hernández Cruz</strong> y <strong>Yasmin Méndez Estrada</strong>,<br>
+      y acompañada por mis queridos padrinos <strong>Alma Patricia Méndez Estrada</strong> y <strong>Jorge </strong>,<br>
+      tengo el honor de invitarte a celebrar mis <strong>XV Años</strong>, un día lleno de sueños, alegría y gratitud.<br>
+      Tu presencia hará de este momento algo inolvidable.
+    </p>
+
+    <div class="contador" id="contador"></div>
+
+    <div class="ubicaciones">
+      <h2>📍 Ubicaciones</h2>
+      <p><strong>Iglesia:</strong> Parroquia de nuestra señora de la esperanza</p>
+      <p><strong>Salón:</strong> salón LALUNA
+</p>
+      <p><strong>Hora:</strong> 3:00 PM</p>
+      <div>
+        <a class="btn" href="https://maps.apple/p/UktUcPo_K_0Cgz" target="_blank">Ver Iglesia</a>
+        <a class="btn" href="https://maps.google.com/?q=Salón+Ejemplo" target="_blank">Ver Salón</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Con cariño, la familia de Natalia 💖
+  </footer>
+
+  <script>
+    const eventoFecha = new Date(2025, 8, 13, 14, 50, 0).getTime();
+    const contador = document.getElementById('contador');
+
+    setInterval(() => {
+      const ahora = new Date().getTime();
+      const diferencia = eventoFecha - ahora;
+
+      if (diferencia <= 0) {
+        contador.innerHTML = "¡Es el gran día!";
+        return;
+      }
+
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+      contador.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    }, 1000);
+  </script>
+
+</body>
+</html>
