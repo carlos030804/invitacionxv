@@ -1,192 +1,341 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>XV Años de Natalia</title>
 
   <!-- Fuentes elegantes -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
 
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Open Sans', sans-serif;
-      background: url('https://www.transparenttextures.com/patterns/flowers.png'), linear-gradient(to bottom, #fce4ec, #fff);
-      background-repeat: repeat;
+      background: linear-gradient(to bottom, #daf0ff, #e8f7fc);
+      color: #0d47a1;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: top center;
       background-size: cover;
-      color: #444;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      opacity: 0.08;
+      z-index: -1;
     }
 
     header {
-      width: 100%;
-      background-image: url('https://via.placeholder.com/1000x400?text=XV+Años+de+Natalia');
+      height: 60vh;
+      background-image: url('fondo.png'); 
       background-size: cover;
-      background-position: center;
-      padding: 100px 20px 60px;
+      background-position: center top;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       color: white;
-      font-size: 3rem;
       font-family: 'Great Vibes', cursive;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
       position: relative;
-      text-align: center;
     }
 
-    header::before {
-      content: "👑";
+    header::after {
+      content: "";
       position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 3rem;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+      z-index: 0;
+    }
+
+    header h1 {
+      font-size: 4rem;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+      animation: fadeInDown 1.5s ease;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .container {
-      max-width: 700px;
-      width: 90%;
-      background: white;
-      margin-top: -40px;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        max-width: 900px;
+        margin: -60px auto 50px;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        animation: fadeIn 1.2s ease;
+        backdrop-filter: blur(8px);
+        background-color: rgba(255, 255, 255, 0.85);
+        background-image: 
+          url('floral.png'), /* Fondo floral pastel azul */
+          radial-gradient(circle at 15% 20%, rgba(179, 217, 255, 0.35) 0%, transparent 70%),
+          radial-gradient(circle at 85% 15%, rgba(214, 236, 255, 0.35) 0%, transparent 70%),
+          radial-gradient(circle at 30% 80%, rgba(179, 217, 255, 0.35) 0%, transparent 70%),
+          radial-gradient(circle at 75% 75%, rgba(214, 236, 255, 0.35) 0%, transparent 70%),
+          radial-gradient(circle at 50% 50%, rgba(179, 217, 255, 0.4) 0%, transparent 70%);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-blend-mode: lighten;
+      }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 2.8rem;
-      color: #d81b60;
+      font-size: 3rem;
+      color: #1565c0;
       margin-bottom: 10px;
     }
 
-    .leyenda {
+    h2 {
+      font-size: 2rem;
+      color: #0d47a1;
+      margin-bottom: 10px;
+    }
+
+    p {
       font-size: 1.1rem;
-      font-style: italic;
-      color: #6a1b9a;
       line-height: 1.6;
-      margin: 20px 0;
+    }
+
+    .manuscrita {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.8rem;
+      color: #fdd835;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      margin: 10px 0;
     }
 
     .contador {
-      font-size: 1.5rem;
-      margin: 20px 0;
+      font-size: 1.8rem;
       font-weight: bold;
-      color: #d81b60;
+      color: #1976d2;
+      background: #e3f2fd;
+      padding: 15px 25px;
+      border-radius: 15px;
+      display: inline-block;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      margin: 20px 0;
     }
 
-    .ubicaciones {
-      margin-top: 30px;
-    }
-
-    .ubicaciones h2 {
-      color: #ad1457;
-      margin-bottom: 10px;
-    }
-
-    .ubicaciones p {
-      margin: 5px 0;
-      font-size: 1rem;
+    .section {
+      margin-top: 40px;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
     }
 
     .btn {
       display: inline-block;
-      margin: 10px 5px;
-      padding: 12px 20px;
-      background: #d81b60;
-      color: white;
+      margin: 10px;
+      padding: 12px 25px;
+      background: rgba(255,255,255,0.7);
+      border: 2px solid #1976d2;
+      color: #0d47a1;
       border-radius: 25px;
       text-decoration: none;
-      transition: 0.3s;
       font-weight: bold;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s;
     }
 
     .btn:hover {
-      background: #ad1457;
+      background: #1976d2;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .opciones, .opciones-regalo {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .opcion {
+      background: #e3f2fd;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      max-width: 200px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .opcion:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
+
+    .opcion img {
+      width: 70px;
+      margin-bottom: 10px;
+    }
+
+    #music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #1976d2;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+
+    #music-btn:hover {
+      background: #0d47a1;
+      transform: scale(1.1);
     }
 
     footer {
+      text-align: center;
       margin: 40px 0 20px;
       font-size: 0.9rem;
       color: #777;
-      text-align: center;
     }
 
     @media (max-width: 600px) {
-      header {
-        font-size: 2.2rem;
-        padding: 80px 10px 40px;
-      }
-
-      h1 {
-        font-size: 2.3rem;
-      }
-
-      .container {
-        padding: 20px;
-      }
+      h1 { font-size: 2.5rem; }
+      .manuscrita { font-size: 1.5rem; }
+      .btn { padding: 10px 20px; }
     }
+
   </style>
 </head>
 <body>
 
   <header>
-    XV Años de Natalia
+    <h1>XV Años de Natalia</h1>
   </header>
 
   <div class="container">
     <h1>¡Estás invitado!</h1>
     <p>Te esperamos el <strong>13 de septiembre de 2025</strong> para celebrar juntos este momento tan especial.</p>
+
+    <p>Con la bendición de Dios y el amor de mis padres:</p>
+    <h1 class="manuscrita">Carlos Ricardo Hernández Cruz</h1>
+    <h1 class="manuscrita">Yasmin Méndez Estrada</h1>
+
+    <p>Y acompañada por mis queridos padrinos:</p>
+    <h1 class="manuscrita">Jorge Sánchez Álvarez</h1>
+    <h1 class="manuscrita">Alma Patricia Méndez Estrada</h1>
     
-    <p class="leyenda">
-      Con la bendición de Dios y el amor de mis padres <strong>Carlos Ricardo Hernández Cruz</strong> y <strong>Yasmin Méndez Estrada</strong>,<br>
-      y acompañada por mis queridos padrinos <strong>Alma Patricia Méndez Estrada</strong> y <strong>Jorge </strong>,<br>
-      tengo el honor de invitarte a celebrar mis <strong>XV Años</strong>, un día lleno de sueños, alegría y gratitud.<br>
-      Tu presencia hará de este momento algo inolvidable.
-    </p>
+
+    <p>Tengo el honor de invitarte a celebrar mis <strong>XV Años</strong>, un día lleno de sueños, alegría y gratitud.<br>
+    Tu presencia hará de este momento algo inolvidable.</p>
 
     <div class="contador" id="contador"></div>
 
-    <div class="ubicaciones">
-      <h2>📍 Ubicaciones</h2>
-      <p><strong>Iglesia:</strong> Parroquia de nuestra señora de la esperanza</p>
-      <p><strong>Salón:</strong> salón LALUNA
-</p>
-      <p><strong>Hora:</strong> 3:00 PM</p>
-      <div>
-        <a class="btn" href="https://maps.apple/p/UktUcPo_K_0Cgz" target="_blank">Ver Iglesia</a>
-        <a class="btn" href="https://maps.google.com/?q=Salón+Ejemplo" target="_blank">Ver Salón</a>
+    <div class="section">
+      <h2>Misa</h2>
+      <p>3:00 PM</p>
+      <p>Parroquia De Nuestra Señora de la Esperanza</p>
+      <img src="iglesia.png" alt="Parroquia De Nuestra Señora de la Esperanza" style="width: 100%; max-width: 400px; border-radius: 15px; margin-top: 10px;" />
+      <div></div>
+      <a class="btn" href="https://maps.app.goo.gl/r74qkNF913PUoWxL6" target="_blank">Ver Mapa</a>
+    </div>
+
+    <div class="section">
+      <h2>Recepción</h2>
+      <p>5:00 PM</p>
+      <p>Salón LALUNA</p>
+      <img src="salon.png" alt="Salón LALUNA" style="width: 100%; max-width: 400px; border-radius: 15px; margin-top: 10px;" />
+      <div></div>
+      <a class="btn" href="https://maps.app.goo.gl/ZMeU6wKbGUapHsUY6" target="_blank">Ver Salón</a>
+    </div>
+
+    <div class="section">
+      <h2>Código de vestimenta</h2>
+      <p>El color azul cielo con lila está reservado para la quinceañera</p>
+      <div class="opciones">
+        <div class="opcion">
+          <p>Mujeres: guapas</p>
+        </div>
+        <div class="opcion">
+          <p>Hombres: guapos</p>
+        </div>
       </div>
+    </div>
+
+    <div class="section">
+      <h2>Regalos</h2>
+      <p>Tu presencia es mi mejor regalo, pero si deseas contribuir:</p>
+      <div class="opciones-regalo">
+        <div class="opcion">
+          <img src="https://img.icons8.com/fluency/96/000000/money.png" alt="Efectivo" />
+          <p>Lluvia de sobre</p>
+        </div>
+        <div class="opcion">
+          <img src="regalo.png" alt="Transferencia" />
+          <p>perfumes o maquillaje</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Confirmación</h2>
+      <p>Por favor confirma tu asistencia antes del 1 de septiembre:</p>
+      <a class="btn" href="https://wa.me/524421192780" target="_blank">Confirmar por WhatsApp</a>
     </div>
   </div>
 
   <footer>
-    Con cariño, la familia de Natalia 💖
-  </footer>
+  Hecho con 💙 por Carlos para Natalia | © 2025
+</footer>
 
-  <script>
-    const eventoFecha = new Date(2025, 8, 13, 14, 50, 0).getTime();
-    const contador = document.getElementById('contador');
+<!-- Reproductor de música con controles -->
+<div style="position: fixed; bottom: 20px; right: 20px; background: rgba(255,255,255,0.9); padding: 10px 15px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 10;">
+  <audio id="bg-music" controls style="width: 250px;">
+    <source src="cancion.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+</div>
 
-    setInterval(() => {
-      const ahora = new Date().getTime();
-      const diferencia = eventoFecha - ahora;
+<script>
+  // Contador
+  const eventoFecha = new Date("2025-09-13T15:00:00");
+  const contador = document.getElementById("contador");
 
-      if (diferencia <= 0) {
-        contador.innerHTML = "¡Es el gran día!";
-        return;
-      }
+  function actualizarContador() {
+    const ahora = new Date();
+    const diferencia = eventoFecha - ahora;
 
-      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+    if (diferencia <= 0) {
+      contador.textContent = "¡Hoy es el gran día!";
+      return;
+    }
 
-      contador.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
-    }, 1000);
-  </script>
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+    const segundos = Math.floor((diferencia / 1000) % 60);
 
-</body>
-</html>
+    contador.textContent = `${dias} días, ${horas}h ${minutos}m ${segundos}s`;
+  }
+
+  setInterval(actualizarContador, 1000);
+  actualizarContador();
+</script>
